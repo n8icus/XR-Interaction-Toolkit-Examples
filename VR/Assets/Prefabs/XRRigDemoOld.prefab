@@ -2484,7 +2484,7 @@ GameObject:
   - component: {fileID: 6232745470614056095}
   - component: {fileID: 6232745470614056094}
   m_Layer: 2
-  m_Name: XRRigDemo
+  m_Name: XRRigDemoOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
