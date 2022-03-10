@@ -31,12 +31,21 @@ TagManager:
   - 
   - 
   - 
+<<<<<<< HEAD
   - HandPlayer
   - Hand
   - Grabbable
   - Grabbing
   - Releasing
   - teleport
+=======
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Teleport
+>>>>>>> master
   m_SortingLayers:
   - name: Default
     uniqueID: 0

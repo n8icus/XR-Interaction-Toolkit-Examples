@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 504972530}
   - component: {fileID: 504972529}
   m_Layer: 0
-  m_Name: XR Rig
+  m_Name: XR Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,15 +735,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 504972528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7448815bd5148434682b3d931066cd10, type: 3}
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Camera: {fileID: 0}
   m_OriginBaseGameObject: {fileID: 504972528}
   m_CameraFloorOffsetObject: {fileID: 1754561180}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.36144
   m_CameraGameObject: {fileID: 963194225}
+=======
+  m_Camera: {fileID: 963194227}
+  m_OriginBaseGameObject: {fileID: 504972528}
+  m_CameraFloorOffsetObject: {fileID: 1754561180}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
+>>>>>>> master
 --- !u!4 &504972530
 Transform:
   m_ObjectHideFlags: 0
@@ -2166,7 +2174,11 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
+<<<<<<< HEAD
   m_SelectMode: 0
+=======
+  m_SelectMode: 1
+>>>>>>> master
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
@@ -2972,7 +2984,11 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
+<<<<<<< HEAD
   m_SelectMode: 0
+=======
+  m_SelectMode: 1
+>>>>>>> master
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
@@ -3775,7 +3791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754561180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1176, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5931,7 +5947,11 @@ MonoBehaviour:
     m_Bits: 2147483648
   m_InteractionLayers:
     m_Bits: 2147483648
+<<<<<<< HEAD
   m_SelectMode: 0
+=======
+  m_SelectMode: 1
+>>>>>>> master
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
@@ -6072,7 +6092,11 @@ MonoBehaviour:
     m_Bits: 2147483648
   m_InteractionLayers:
     m_Bits: 2147483648
+<<<<<<< HEAD
   m_SelectMode: 0
+=======
+  m_SelectMode: 1
+>>>>>>> master
   m_CustomReticle: {fileID: 3819676577015031517, guid: c9ea54082e6151843acb776fb52ed6f7,
     type: 3}
   m_FirstHoverEntered:
