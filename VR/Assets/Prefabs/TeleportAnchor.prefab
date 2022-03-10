@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.074, y: 0.922, z: -1.578}
   m_LocalScale: {x: 0.8500005, y: 0.1, z: 0.8500005}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 650193870389252252}
   m_Father: {fileID: 0}
@@ -54,10 +55,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2818971628382573792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,11 +103,15 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 2147483648
+  m_InteractionLayers:
+    m_Bits: 2147483648
+  m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 650193870389252253}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -118,6 +126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 650193870389252253}
+        m_TargetAssemblyTypeName: 
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -132,6 +141,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
   m_SelectEntered:
@@ -176,6 +191,9 @@ MonoBehaviour:
   m_TeleportationProvider: {fileID: 0}
   m_MatchOrientation: 2
   m_TeleportTrigger: 0
+  m_Teleporting:
+    m_PersistentCalls:
+      m_Calls: []
   m_TeleportAnchorTransform: {fileID: 8164705571879959090}
 --- !u!64 &6382560641716693759
 MeshCollider:
@@ -196,6 +214,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8164705571879959090}
     m_Modifications:
     - target: {fileID: 1518100748218613121, guid: 596de90f3b56c1d4b822ecd5cd042af5,
@@ -304,16 +323,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 596de90f3b56c1d4b822ecd5cd042af5, type: 3}
---- !u!1 &650193870389252253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5912294613314595516, guid: 596de90f3b56c1d4b822ecd5cd042af5,
-    type: 3}
-  m_PrefabInstance: {fileID: 6559848279190960673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &650193870389252252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5912294613314595517, guid: 596de90f3b56c1d4b822ecd5cd042af5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6559848279190960673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &650193870389252253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5912294613314595516, guid: 596de90f3b56c1d4b822ecd5cd042af5,
     type: 3}
   m_PrefabInstance: {fileID: 6559848279190960673}
   m_PrefabAsset: {fileID: 0}

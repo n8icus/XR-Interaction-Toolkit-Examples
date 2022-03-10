@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15798001, y: 0.15798, z: 0.15798001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7517549319329480229}
   m_RootOrder: 0
@@ -124,6 +125,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.9347332, z: -0, w: 0.35535038}
   m_LocalPosition: {x: 0.370687, y: 1.931, z: -0.6664238}
   m_LocalScale: {x: 0.15798, y: 0.15798, z: 0.15798}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4541975223242654334}
   m_Father: {fileID: 0}
@@ -162,6 +164,9 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 55
+  m_InteractionLayers:
+    m_Bits: 55
+  m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
@@ -173,6 +178,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
   m_SelectEntered:
