@@ -22,6 +22,7 @@ public class ActionBasedControllerManager : MonoBehaviour
         Select,
         Teleport,
         Interact,
+        //Ray,
     }
 
     [Serializable]
@@ -127,6 +128,20 @@ public class ActionBasedControllerManager : MonoBehaviour
         get => m_TeleportControllerGameObject;
         set => m_TeleportControllerGameObject = value;
     }
+    
+    /*
+    [SerializeField, FormerlySerializedAs("m_RayControllerGO")]
+    [Tooltip("The ray controller GameObject, used for changing default settings on its components during state transitions.")]
+    GameObject m_RayControllerGameObject;
+    /// <summary>
+    /// The teleport controller <see cref="GameObject"/>, used for changing default settings on its components during state transitions.
+    /// </summary>
+    public GameObject rayControllerGameObject
+    {
+        get => m_TeleportControllerGameObject;
+        set => m_TeleportControllerGameObject = value;
+    }
+    */
 
     [Space]
     [Header("Controller Actions") ]
@@ -233,6 +248,16 @@ public class ActionBasedControllerManager : MonoBehaviour
     /// (Read Only) The default Interact state.
     /// </summary>
     public ControllerState interactState => m_InteractState;
+
+    /*
+    [SerializeField]
+    [Tooltip("The default Interact state and events for the controller.")]
+    ControllerState m_RayState = new ControllerState(StateId.Ray);
+    /// <summary>
+    /// (Read Only) The default Interact state.
+    /// </summary>
+    public ControllerState rayState => m_RayState;
+    */
 #pragma warning restore IDE0044
 
     // The list to store and run the default states
@@ -247,10 +272,15 @@ public class ActionBasedControllerManager : MonoBehaviour
     XRBaseInteractor m_TeleportInteractor;
     XRInteractorLineVisual m_TeleportLineVisual;
 
+    //XRBaseController m_RayController;
+    //XRBaseInteractor m_RayInteractor;
+    //XRInteractorLineVisual m_RayLineVisual;
+
     protected void OnEnable()
     {
         FindBaseControllerComponents();
         FindTeleportControllerComponents();
+        //FindRayControllerComponents();
 
         // Add default state events.
         m_SelectState.onEnter.AddListener(OnEnterSelectState);
@@ -264,6 +294,10 @@ public class ActionBasedControllerManager : MonoBehaviour
         m_InteractState.onEnter.AddListener(OnEnterInteractState);
         m_InteractState.onUpdate.AddListener(OnUpdateInteractState);
         m_InteractState.onExit.AddListener(OnExitInteractState);
+
+        //m_RayState.onEnter.AddListener(OnEnterRayState);
+        //m_RayState.onUpdate.AddListener(OnUpdateRayState);
+        //m_RayState.onExit.AddListener(OnExitRayState);
     }
 
     protected void OnDisable()
@@ -280,6 +314,10 @@ public class ActionBasedControllerManager : MonoBehaviour
         m_InteractState.onEnter.RemoveListener(OnEnterInteractState);
         m_InteractState.onUpdate.RemoveListener(OnUpdateInteractState);
         m_InteractState.onExit.RemoveListener(OnExitInteractState);
+
+        //m_RayState.onEnter.RemoveListener(OnEnterRayState);
+        //m_RayState.onUpdate.RemoveListener(OnUpdateRayState);
+        //m_RayState.onExit.RemoveListener(OnExitRayState);
     }
 
     // Start is called before the first frame update
@@ -289,6 +327,7 @@ public class ActionBasedControllerManager : MonoBehaviour
         m_DefaultStates.Add(m_SelectState);
         m_DefaultStates.Add(m_TeleportState);
         m_DefaultStates.Add(m_InteractState);
+        //m_DefaultStates.Add(m_RayState);
 
         // Initialize to start in m_SelectState
         TransitionState(null, m_SelectState);
@@ -383,6 +422,39 @@ public class ActionBasedControllerManager : MonoBehaviour
         }
     }
 
+    /*
+    void FindRayControllerComponents()
+    {
+        if (m_RayControllerGameObject == null)
+        {
+            Debug.LogWarning("Missing reference to Ray Controller GameObject.", this);
+            return;
+        }
+
+        if (m_RayController == null)
+        {
+            m_RayController = m_RayControllerGameObject.GetComponent<XRBaseController>();
+            if (m_RayController == null)
+                Debug.LogWarning($"Cannot find any {nameof(XRBaseController)} component on the Ray Controller GameObject.", this);
+        }
+
+        if (m_RayInteractor == null)
+        {
+            m_RayInteractor = m_RayControllerGameObject.GetComponent<XRBaseInteractor>();
+            if (m_RayInteractor == null)
+                Debug.LogWarning($"Cannot find any {nameof(XRBaseInteractor)} component on the Ray Controller GameObject.", this);
+        }
+
+        // Only check the line visual component for RayInteractor, since DirectInteractor does not use the line visual component
+        if (m_RayInteractor is XRRayInteractor && m_RayLineVisual == null)
+        {
+            m_RayLineVisual = m_RayControllerGameObject.GetComponent<XRInteractorLineVisual>();
+            if (m_RayLineVisual == null)
+                Debug.LogWarning($"Cannot find any {nameof(XRInteractorLineVisual)} component on the Ray Controller GameObject.", this);
+        }
+    }
+    */
+
     /// <summary>
     /// Find and configure the components on the base controller.
     /// </summary>
@@ -418,7 +490,26 @@ public class ActionBasedControllerManager : MonoBehaviour
         if (m_TeleportInteractor != null)
             m_TeleportInteractor.enabled = enable;
     }
+    
+    /*
+    /// <summary>
+    /// Find and configure the components on the ray controller.
+    /// </summary>
+    /// <param name="enable"> Set it true to enable the teleport controller, false to disable it. </param>
+    void SetRayController(bool enable)
+    {
+        FindRayControllerComponents();
 
+        if (m_RayLineVisual != null)
+            m_RayLineVisual.enabled = enable;
+        
+        if (m_RayController != null)
+            m_RayController.enableInputActions = enable;
+        
+        if (m_TeleportInteractor != null)
+            m_RayInteractor.enabled = enable;
+    }
+    */
     void OnEnterSelectState(StateId previousStateId)
     {
         // Change controller and enable actions depending on the previous state
@@ -447,6 +538,11 @@ public class ActionBasedControllerManager : MonoBehaviour
                 EnableAction(m_Turn);
                 EnableAction(m_Move);
                 break;
+            //case StateId.Ray:
+            //    EnableAction(m_Turn);
+            //    EnableAction(m_Move);
+            //    //SetBaseController(true);
+            //    break;
             default:
                 Debug.Assert(false, $"Unhandled case when entering Select from {previousStateId}.");
                 break;
@@ -471,6 +567,11 @@ public class ActionBasedControllerManager : MonoBehaviour
                 DisableAction(m_Turn);
                 DisableAction(m_Move);
                 break;
+            //case StateId.Ray:
+            //    DisableAction(m_Turn);
+            //    DisableAction(m_Move);
+            //    //SetBaseController(false);
+            //    break;
             default:
                 Debug.Assert(false, $"Unhandled case when exiting Select to {nextStateId}.");
                 break;
@@ -494,6 +595,10 @@ public class ActionBasedControllerManager : MonoBehaviour
         DisableAction(m_TranslateAnchor);
         DisableAction(m_RotateAnchor);
     }
+
+    //void OnEnterRayState(StateId previousStateId) => SetRayController(true);
+
+    //void OnExitRayState(StateId nextStateId) => SetRayController(false);
 
     /// <summary>
     /// This method is automatically called each frame to handle initiating transitions out of the Select state.

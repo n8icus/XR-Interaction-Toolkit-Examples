@@ -31,11 +31,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - HandPlayer
+  - Hand
+  - Grabbable
+  - Grabbing
+  - Releasing
   - teleport
   m_SortingLayers:
   - name: Default
